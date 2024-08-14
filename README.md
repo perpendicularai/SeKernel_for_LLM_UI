@@ -1,6 +1,12 @@
 # SeKernel_for_LLM_UI
 This is the repository for the UI for the SeKernel_for_LLM module
 
+## Requirements
+- pyqt5
+- llama-cpp-python
+- markdown
+- pyqtspinner
+
 ## How to:
 - Clone the repo `git clone https://github.com/perpendicularai/SeKernel_for_LLM_UI.git`
 - Ensure that you have llama-cpp-python installed and running
