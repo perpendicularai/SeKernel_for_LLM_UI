@@ -129,13 +129,6 @@ class TypingEffect(QMainWindow):
     border-color: beige;
     padding: 5px;
 """)
-        
-
-        # Add image
-        image_label = QLabel()
-        pixmap = QPixmap("logo.png")  # Replace "powered_by_ollama.png" with your image file path
-        scaled_pixmap = pixmap.scaled(100, 100, Qt.KeepAspectRatio)  # Adjust the size as needed
-        image_label.setPixmap(scaled_pixmap)
 
         # Create layouts
         input_layout = QHBoxLayout()
