@@ -45,21 +45,6 @@ class TypingEffect(QMainWindow):
 
         # Create widgets
     def initUI(self):
-        self.resize(600, 600)
-        self.child = QWidget(self)
-        self.child.setStyleSheet("background-color:red;border-radius:15px;")
-        self.child.resize(100, 100)
-        self.anim = QPropertyAnimation(self.child, b"pos")
-        self.anim.setEndValue(QPoint(200, 200))
-        self.anim.setDuration(1500)
-        self.anim_2 = QPropertyAnimation(self.child, b"size")
-        self.anim_2.setEndValue(QSize(250, 150))
-        self.anim_2.setDuration(2000)
-        self.anim_group = QSequentialAnimationGroup()
-        self.anim_group.addAnimation(self.anim)
-        self.anim_group.addAnimation(self.anim_2)
-        self.anim_group.start()
-
         self.input_edit = QTextEdit()
         self.input_edit.setFixedHeight(50)
         self.input_edit.setPlaceholderText("Enter your prompt...")
@@ -164,7 +149,6 @@ class TypingEffect(QMainWindow):
         radio_layout.addWidget(self.checkbox0)
 
         main_layout = QVBoxLayout()
-        main_layout.addWidget(self.child)
         main_layout.addLayout(radio_layout)
         main_layout.addWidget(self.text_edit)
         main_layout.addLayout(input_layout)
@@ -173,14 +157,6 @@ class TypingEffect(QMainWindow):
         central_widget = QWidget()
         central_widget.setLayout(main_layout)
         self.setCentralWidget(central_widget)
-
-        self.setStyleSheet(
-    """
-    QMainWindow {
-    background-image: url('Gal1.gif')
-}
-"""
-        )
 
         # Initialize typing variables
         self.text_buffer = ""
