@@ -11,6 +11,11 @@ import os
 import markdown
 import webbrowser  # For opening links in a web browser
 from pyqtspinner.spinner import WaitingSpinner
+import pyttsx3
+import time
+
+# Initialize Speech-engine
+engine = pyttsx3.init()
 
 # List class
 class MyList(list):
@@ -211,6 +216,13 @@ class TypingEffect(QMainWindow):
                 # temperature=0.7,
                 #stream=True,
             )
+
+            time.sleep(5)
+            voices = engine.getProperty('voices')
+            engine.setProperty('voice', voices[1].id) # setProperty method
+            engine.say(completion['choices'][0]['message']['content'])
+            engine.runAndWait()
+            engine.stop()
             
 
             self.signals.text_ready.emit(completion['choices'][0]['message']['content'])
