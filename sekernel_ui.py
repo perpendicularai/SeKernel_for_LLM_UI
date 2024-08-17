@@ -199,7 +199,7 @@ class TypingEffect(QMainWindow):
                 model_path=kernel.model(),
                 n_ctx=4096
                 )
-            question = self.input_edit.text()
+            question = self.input_edit.toPlainText()
             searchPrompt = plugins.searchPlugin(output=question)
             self.my_list2 = kernel.shopTemplate(prompt=question, plugin=plugins.defaultPlugin(), context=searchPrompt)
 
@@ -221,7 +221,7 @@ class TypingEffect(QMainWindow):
                 model_path=kernel.model(),
                 n_ctx=4096
                 )
-            question = self.input_edit.text()
+            question = self.input_edit.toPlainText()
 
             # Add the user's question to the history
             self.my_list2.append({"role": "user", "content": question})
