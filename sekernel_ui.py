@@ -243,6 +243,13 @@ class TypingEffect(QMainWindow):
                 # temperature=0.7,
                 #stream=True,
             )
+
+            time.sleep(5)
+            voices = engine.getProperty('voices')
+            engine.setProperty('voice', voices[1].id) # setProperty method
+            engine.say(completion['choices'][0]['message']['content'])
+            engine.runAndWait()
+            engine.stop()
             
 
             self.signals.text_ready.emit(completion['choices'][0]['message']['content'])
